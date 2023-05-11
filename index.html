@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XO-game</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>XO-game</h1>
+    <section class="main_section">
+      <p id="info"></p>
+      <div class="gameboard" id="board"></div>
+    </section>
+
+    <section class="score_section">
+      <h2>Score board</h2>
+      <div class="table">
+        <div class="table_header">
+          <p class="table_header_item">Player X</p>
+          <p class="table_header_item">Player O</p>
+          <p class="table_header_item">Draws</p>
+        </div>
+        <div class="table_score">
+          <span class="table_score_item" id="playerX_score">0</span>
+          <span class="table_score_item" id="playerO_score">0</span>
+          <span class="table_score_item" id="draw">0</span>
+        </div>
+      </div>
+      <button class="btn_reset">Reset score</button>
+    </section>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

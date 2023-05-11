@@ -1,0 +1,155 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --hue: 10;
+  --accent: var(--hue) 60% 50%;
+  --accentX: #cc4d33;
+  --accentO: #3399cc;
+  --bkg: #fcf9f8;
+  --text: ghostwhite;
+  --gray: dimgray;
+  --header: #5c180a;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  display: grid;
+  justify-content: center;
+  grid-template-areas:
+    "auto auto"
+    "main score";
+  background-color: var(--bkg);
+  color: var(--text);
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: var(--header);
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--header);
+}
+
+#info {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: hsl(var(--accent));
+  color: var(--text);
+  padding: 0.5rem 1.5rem;
+  border-radius: 100vmax;
+}
+
+section {
+  display: grid;
+  gap: 2rem;
+  place-items: center;
+  place-content: center;
+  padding: 2rem;
+}
+
+.main_section {
+  min-height: 100%;
+  grid-area: main;
+}
+
+.score_section {
+  width: 300px;
+  grid-area: score;
+}
+
+.gameboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  width: 600px;
+  max-width: 90vw;
+  aspect-ratio: 1/1;
+}
+
+.tile {
+  border: 2px solid var(--gray);
+  background-color: var(--bkg);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: hsl(var(--hue) 60% 50%);
+  font-weight: bold;
+  font-size: clamp(2rem, calc(10vw + 1rem), 10rem);
+  aspect-ratio: 1/1;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.tile:focus,
+.tile:hover {
+  border-color: hsl(var(--hue) 60% 50%);
+  outline: 3px solid hsl(var(--hue) 60% 50%);
+}
+
+.tile[data-value]::before {
+  content: attr(data-value);
+  opacity: 1;
+}
+
+.table {
+  width: 300px;
+}
+
+.table_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+}
+
+.table_header_item,
+.table_score_item {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 100vmax;
+}
+
+.table_header_item {
+  background-color: var(--accentX);
+}
+
+.table_score_item {
+  font-size: 1.5rem;
+  color: #5c180a;
+}
+
+.table_header_item:nth-child(2n) {
+  background-color: var(--accentO);
+}
+
+.table_score {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn_reset {
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background-color: var(--accentO);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 100vmax;
+}
